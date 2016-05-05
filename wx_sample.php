@@ -1,8 +1,10 @@
 <?php
 /**
   * wechat php test
+  * 
   */
-echo "2333\n";
+//echo 'start';
+>>>>>>> f260cb8848aa0a3250bfae4ed2bb6488e21e7a88
 //define your token
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
@@ -15,6 +17,7 @@ class wechatCallbackapiTest
 {
     public function valid()
     {
+        //接收随机字符串
         $echoStr = $_GET["echostr"];
 
         //valid signature , option
@@ -39,10 +42,15 @@ class wechatCallbackapiTest
                    the best way is to check the validity of xml by yourself */
                 libxml_disable_entity_loader(true);
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $fromUsername = $postObj->FromUserName;
-                $toUsername = $postObj->ToUserName;
-                $keyword = trim($postObj->Content);
+                $fromUsername = $postObj->FromUserName;             //发送方账号
+                $toUsername = $postObj->ToUserName;                     //开发者微信号
+                $keyword = trim($postObj->Content);                             //文本消息
                 $time = time();
+                
+                //消息类型(6种)
+                $msgType = $postObj->MsgType;
+
+                //文本发送模板
                 $textTpl = "<xml>
                             <ToUserName><![CDATA[%s]]></ToUserName>
                             <FromUserName><![CDATA[%s]]></FromUserName>
@@ -50,16 +58,29 @@ class wechatCallbackapiTest
                             <MsgType><![CDATA[%s]]></MsgType>
                             <Content><![CDATA[%s]]></Content>
                             <FuncFlag>0</FuncFlag>
-                            </xml>";             
-                if(!empty( $keyword ))
-                {
+                            </xml>";        
+
+                switch ($msgType) {
+                    case 'text':
+                        # code...
+                            
+               
                     $msgType = "text";
-                    $contentStr = "Welcome to wechat world!";
+                    //回复内容
+                    $contentStr = "你说了$keyword";
+                    //格式化字符串
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
-                }else{
-                    echo "Input something...";
+
+                        break;
+                    
+                    default:
+                        # code...
+                        break;
                 }
+
+
+
 
         }else {
             echo "";
@@ -67,6 +88,10 @@ class wechatCallbackapiTest
         }
     }
         
+    /**
+     * 用户签名认证
+     * @return [type] [description]
+     */
     private function checkSignature()
     {
     // you must define TOKEN by yourself
@@ -82,6 +107,7 @@ class wechatCallbackapiTest
     $tmpArr = array($token, $timestamp, $nonce);
     // use SORT_STRING rule
     sort($tmpArr, SORT_STRING);
+    //数组转字符串再加密
     $tmpStr = implode( $tmpArr );
     $tmpStr = sha1( $tmpStr );
     
