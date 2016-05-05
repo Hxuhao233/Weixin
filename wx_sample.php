@@ -66,7 +66,7 @@ class wechatCallbackapiTest
                
                     $msgType = "text";
                     //回复内容
-                    $contentStr = "Welcome to wechat world!";
+                    $contentStr = "你说了$keyword";
                     //格式化字符串
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
