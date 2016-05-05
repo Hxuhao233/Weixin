@@ -2,7 +2,7 @@
 /**
   * wechat php test
   */
-
+echo "2333\n";
 //define your token
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
@@ -10,7 +10,7 @@ $wechatObj = new wechatCallbackapiTest();
 //$wechatObj->valid();
 //自动回复
 $wechatObj->responseMsg();
-
+echo 'hi,sb~';
 class wechatCallbackapiTest
 {
     public function valid()
