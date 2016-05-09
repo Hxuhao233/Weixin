@@ -6,6 +6,7 @@
 echo 'start';
 //define your token
 define("TOKEN", "weixin");
+include_once("filterKeyword.php");
 $wechatObj = new wechatCallbackapiTest();
 //验证函数
 //$wechatObj->valid();
@@ -63,10 +64,11 @@ class wechatCallbackapiTest
                     case 'text':
                         # code...
                             
-               
+                    //回复类型
                     $msgType = "text";
+                    
                     //回复内容
-                    $contentStr = "你说了$keyword";
+                    $contentStr = $keywordSelect($keyword);
                     //格式化字符串
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
