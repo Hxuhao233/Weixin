@@ -66,9 +66,10 @@ class wechatCallbackapiTest
                             
                     //回复类型
                     $msgType = "text";
-                    
+		
+		//  $contentStr = "xixi";                  
                     //回复内容
-                    $contentStr = $keywordSelect($keyword);
+                    $contentStr = keywordSelect($keyword);
                     //格式化字符串
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
