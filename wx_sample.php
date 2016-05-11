@@ -44,28 +44,40 @@ class wechatCallbackapiTest
                             <Content><![CDATA[%s]]></Content>
                             <FuncFlag>0</FuncFlag>
                             </xml>";             
-                if(!empty( $keyword ))
-                {
-                    $msgType = "text";
-                    $contentStr = "hi ";
-                  //  $contentStr =keywordSelect($keyword);
-                     switch ($keyword) {
-                         case '1':
-                             # code...
-                            $contentStr .= "sb wake up!!" ."233";
-                             break;
-                        
-                         default:
-                             # code...
-                            $contentStr =  "balabala"; 
-                             break;
-                     }
-                    $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                    echo $resultStr;
-                }else{
-                    echo "Input something...";
-                }
+              switch ($msgType) {
+                  case 'text':
+                      # code...
+                        if(!empty( $keyword ))
+                        {
+                            $msgType = "text";
+                            $contentStr = "hi ";
+                          //  $contentStr =keywordSelect($keyword);
+                             switch ($keyword) {
+                                 case '1':
+                                     # code...
+                                    $contentStr .= "sb wake up!!" ."233";
+                                     break;
+                                
+                                 default:
+                                     # code...
+                                    $contentStr =  "balabala"; 
+                                     break;
+                             }
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                            echo $resultStr;
+                        }else{
+                            echo "Input something...";
+                        }
 
+                      break;
+                  
+                  default:
+                      # code...
+                      break;
+              }
+
+
+              
         }else {
             echo "";
             exit;
