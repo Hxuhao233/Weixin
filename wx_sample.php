@@ -3,7 +3,7 @@
   * wechat php test
   * 
   */
-echo 'start';
+//echo 'start';
 //define your token
 define("TOKEN", "weixin");
 include_once("filterKeyword.php");
@@ -12,7 +12,7 @@ $wechatObj = new wechatCallbackapiTest();
 //$wechatObj->valid();
 //自动回复
 $wechatObj->responseMsg();
-echo 'hi,sb~';
+//echo 'hi,sb~';
 class wechatCallbackapiTest
 {
     public function valid()
@@ -78,7 +78,7 @@ class wechatCallbackapiTest
                     echo $resultStr;
 
                         break;
-                    }
+                    
                     default:
                         # code...
                         //回复类型
@@ -102,7 +102,7 @@ class wechatCallbackapiTest
                     //格式化字符串
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $returnstr);
                     echo $resultStr;
-            exit;
+                    exit;
         }
     }
         
