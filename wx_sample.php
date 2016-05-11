@@ -2,7 +2,7 @@
 /**
   * wechat php test
   */
-
+include_once("filterKeyword.php")
 //define your token
 define("TOKEN", "weixin");
 $wechatObj = new wechatCallbackapiTest();
@@ -47,7 +47,7 @@ class wechatCallbackapiTest
                 if(!empty( $keyword ))
                 {
                     $msgType = "text";
-                    $contentStr = "Welcome to wechat world!";
+                    $contentStr =keywordSelect($keyword);
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
                 }else{
