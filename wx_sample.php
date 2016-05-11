@@ -67,7 +67,7 @@ class wechatCallbackapiTest
                         $msgType = "text";
              
                         //回复内容
-                        $contentStr = keywordSelect($keyword);
+                     //   $contentStr = keywordSelect($keyword);
                         if($contentStr=="")
                             $contentStr ="ss";
                         //格式化字符串
