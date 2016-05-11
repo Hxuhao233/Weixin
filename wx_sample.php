@@ -84,7 +84,7 @@ class wechatCallbackapiTest
                         $resultStr += "excuse me?!!";
                     //格式化字符串
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $returnstr);
-                    //echo $resultStr;
+                    echo $resultStr;
 
                         break;
                     }
