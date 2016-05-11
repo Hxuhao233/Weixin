@@ -75,7 +75,7 @@ class wechatCallbackapiTest
                     # code...
                     $x = $postObj->Location_X;
                     $y = $postObj->Location_Y;
-                    $contentStr = "X: $x    Y:$y";
+                    $contentStr = "locationMsg";
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
                     break;
