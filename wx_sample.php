@@ -51,7 +51,7 @@ class wechatCallbackapiTest
                     switch ($keyword) {
                         case '1':
                             # code...
-                           $contentStr = "sb wake up!!";
+                           $contentStr = "sb wake up!!" ."233";
                             break;
                         
                         default:
