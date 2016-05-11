@@ -70,9 +70,9 @@ class wechatCallbackapiTest
 		//  $contentStr = "xixi";                  
                     //回复内容
                  //   $contentStr = keywordSelect($keyword);
-                    $returnstr;
+               
                   
-                    $returnstr += "excuse me?!!";
+                    $returnstr = "excuse me??";
                     //格式化字符串
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $returnstr);
                     echo $resultStr;
@@ -81,6 +81,14 @@ class wechatCallbackapiTest
                     }
                     default:
                         # code...
+                        //回复类型
+                    $msgType = "text";
+    
+                  
+                    $returnstr = "excuse me?";
+                    //格式化字符串
+                    $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $returnstr);
+                    echo $resultStr;
                         break;
                 }
 
@@ -88,7 +96,12 @@ class wechatCallbackapiTest
 
 
         }else {
-            echo "";
+                    $msgType = "text";
+         
+                    $returnstr = "excuse me?!";
+                    //格式化字符串
+                    $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $returnstr);
+                    echo $resultStr;
             exit;
         }
     }
