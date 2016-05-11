@@ -47,18 +47,19 @@ class wechatCallbackapiTest
                 if(!empty( $keyword ))
                 {
                     $msgType = "text";
-                    $contentStr =keywordSelect($keyword);
-                    // switch ($keyword) {
-                    //     case '1':
-                    //         # code...
-                    //        $contentStr = "sb wake up!!" ."233";
-                    //         break;
+                    $contentStr = "hi ";
+                  //  $contentStr =keywordSelect($keyword);
+                     switch ($keyword) {
+                         case '1':
+                             # code...
+                            $contentStr .= "sb wake up!!" ."233";
+                             break;
                         
-                    //     default:
-                    //         # code...
-                    //         $contentStr =  "balabala"; 
-                    //         break;
-                    // }
+                         default:
+                             # code...
+                            $contentStr =  "balabala"; 
+                             break;
+                     }
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
                 }else{
