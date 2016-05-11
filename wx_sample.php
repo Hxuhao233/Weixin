@@ -49,7 +49,7 @@ class wechatCallbackapiTest
                     $msgType = "text";
                     $contentStr =$keyword;
                     if($keyword==1){
-                            $contentStr +=. "balabala"; 
+                            $contentStr += . "balabala"; 
                     }
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     echo $resultStr;
