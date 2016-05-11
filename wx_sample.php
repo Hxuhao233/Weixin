@@ -87,7 +87,7 @@ class wechatCallbackapiTest
                     //echo $resultStr;
 
                         break;
-                    
+                    }
                     default:
                         # code...
                         break;
