@@ -35,6 +35,7 @@ class wechatCallbackapiTest
                 $fromUsername = $postObj->FromUserName;
                 $toUsername = $postObj->ToUserName;
                 $keyword = trim($postObj->Content);
+                $msgType = $postObj->MsgType;
                 $time = time();
                 $textTpl = "<xml>
                             <ToUserName><![CDATA[%s]]></ToUserName>
