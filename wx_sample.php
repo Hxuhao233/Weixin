@@ -70,18 +70,9 @@ class wechatCallbackapiTest
 		//  $contentStr = "xixi";                  
                     //回复内容
                  //   $contentStr = keywordSelect($keyword);
-                 $returnstr;
-                  switch ($keyword) {
-                    case '?':
-                    case "？":
-                        # code...
-                        //setcookie("choose","",time()-3600);
-                        $returnstr += "你可能想知道\n";
-                        $returnstr += "【1】号码\n【2】我名字= -\n";
-                        break;
-
-                    default:
-                        $resultStr += "excuse me?!!";
+                    $returnstr;
+                  
+                    $resultStr += "excuse me?!!";
                     //格式化字符串
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $returnstr);
                     echo $resultStr;
